@@ -19,6 +19,7 @@ interface Doctor {
   nextAvailable: string;
   image: string;
   consultationFee: number;
+  calendlyLink: string;
 }
 
 interface VideoCallState {
@@ -50,7 +51,8 @@ const MedOChat = ({ onBack }: MedOChatProps) => {
       isOnline: true,
       nextAvailable: 'Available now',
       image: '/placeholder.svg',
-      consultationFee: 500
+      consultationFee: 500,
+      calendlyLink: 'https://calendly.com/dr-priya-sharma'
     },
     {
       id: '2',
@@ -61,7 +63,8 @@ const MedOChat = ({ onBack }: MedOChatProps) => {
       isOnline: true,
       nextAvailable: 'Available now',
       image: '/placeholder.svg',
-      consultationFee: 800
+      consultationFee: 800,
+      calendlyLink: 'https://calendly.com/dr-rajesh-kumar'
     },
     {
       id: '3',
@@ -72,7 +75,8 @@ const MedOChat = ({ onBack }: MedOChatProps) => {
       isOnline: false,
       nextAvailable: 'Available in 30 min',
       image: '/placeholder.svg',
-      consultationFee: 600
+      consultationFee: 600,
+      calendlyLink: 'https://calendly.com/dr-anita-patel'
     },
     {
       id: '4',
@@ -83,7 +87,8 @@ const MedOChat = ({ onBack }: MedOChatProps) => {
       isOnline: true,
       nextAvailable: 'Available now',
       image: '/placeholder.svg',
-      consultationFee: 700
+      consultationFee: 700,
+      calendlyLink: 'https://calendly.com/dr-vikram-singh'
     }
   ];
 
@@ -157,7 +162,7 @@ const MedOChat = ({ onBack }: MedOChatProps) => {
   };
 
   const scheduleAppointment = (doctor: Doctor) => {
-    alert(`Scheduling appointment with ${doctor.name}. This feature will be implemented soon.`);
+    window.open(doctor.calendlyLink, '_blank');
   };
 
   if (videoCall.isActive && selectedDoctor) {
@@ -348,7 +353,7 @@ const MedOChat = ({ onBack }: MedOChatProps) => {
                     className="flex items-center gap-2"
                   >
                     <Calendar className="h-4 w-4" />
-                    Schedule
+                    Book Call
                   </Button>
                 </div>
               </CardContent>
